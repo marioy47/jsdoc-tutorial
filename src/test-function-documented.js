@@ -12,12 +12,12 @@
  * @return {Boolean} Always true
  */
 const testFunctionDocumented = (first, last, params = {}) => {
-  const { age = 22, city = 'Medellín' } = params
+  const { age = 22, city = "Medellín" } = params;
 
-  console.log(`The name is ${first} ${last}`)
-  console.log(`The age is ${age} and the city ${city}`)
+  console.log(`The name is ${first} ${last}`);
+  console.log(`The age is ${age} and the city ${city}`);
 
-  return true
-}
+  return true;
+};
 
-export default testFunctionDocumented
+export default testFunctionDocumented;

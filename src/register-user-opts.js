@@ -5,19 +5,19 @@
  *
  * @type {Boolean}
  */
-const successValue = true
+const successValue = true;
 
 /**
  * Possible profiles a user can have
  *
  * @type {Array<string>}
  */
-const profiles = []
+const profiles = [];
 
 // Adding profiles to the empty array.
-profiles.push('student')
-profiles.push('teacher')
-profiles.push('advisor')
+profiles.push("student");
+profiles.push("teacher");
+profiles.push("advisor");
 
 /**
  * Additional options for registering a user
@@ -25,7 +25,7 @@ profiles.push('advisor')
  * @typedef {Object} UserOpts
  * @property {String} major The major of the user
  * @property {String} profile On of `student`, `teacher`, `consultant`.
- * @property {Boolean} withMajor `true` if the user has a major.
+ * @property {Boolean} [withMajor=true] `true` if the user has a major.
  */
 
 /**
@@ -38,24 +38,24 @@ profiles.push('advisor')
  * @throws {Error} If there was an unknown error
  * @throws {WrongProfileError} If the profile in opts is not avalable
  */
-function registerUserOpts (name, age, opts = {}) {
-  const { major = 'Electric', profile = 'student', withMajor = true } = opts
+function registerUserOpts(name, age, opts = {}) {
+  const { major = "Electric", profile = "student", withMajor = true } = opts;
 
   if (!profiles.includes(profile)) {
-    throw new WrongProfileError(`The profile ${profile} is not permited`)
+    throw new WrongProfileError(`The profile ${profile} is not permited`);
   }
 
   if (!successValue) {
-    throw new Error('Default wrong error')
+    throw new Error("Default wrong error");
   }
 
-  console.log(`The user ${name} of age ${age} was registered`)
+  console.log(`The user ${name} of age ${age} was registered`);
 
   if (withMajor) {
-    console.log(`Updating user's major whith ${major}`)
+    console.log(`Updating user's major whith ${major}`);
   }
 
-  return successValue
+  return successValue;
 }
 
 /**
@@ -64,15 +64,15 @@ function registerUserOpts (name, age, opts = {}) {
  */
 class WrongProfileError extends Error {
   /**
-   * @param {String} The message assigned by the developer
+   * @param {String} message The message assigned by the developer
    */
-  constructor (message) {
-    super(message)
-    this.name = 'WrongProfileError'
+  constructor(message) {
+    super(message);
+    this.name = "WrongProfileError";
   }
 }
 
 module.exports = {
   registerUserOpts,
-  WrongProfileError
-}
+  WrongProfileError,
+};
